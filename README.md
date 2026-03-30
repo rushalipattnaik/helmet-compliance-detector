@@ -13,7 +13,7 @@ This project is particularly useful for:
 
 Ensuring that workers wear helmets is critical for preventing injuries. Manual monitoring is inefficient and error-prone.
 
-👉 This system automates **helmet compliance detection** using deep learning, enabling:
+👉 This system automates helmet compliance detection using deep learning, enabling:
 - Real-time monitoring  
 - Instant violation alerts  
 - Improved workplace safety  
@@ -22,12 +22,12 @@ Ensuring that workers wear helmets is critical for preventing injuries. Manual m
 
 ## 🚀 Features
 
-- 🔍 Detects **Helmet / No Helmet**
-- ⚠️ Highlights **non-compliant workers**
-- 🎥 Supports **image, video & webcam detection**
-- 🌐 Interactive **Streamlit Web App**
-- 📊 Model evaluation with metrics & plots
-- ⚡ Fast inference using YOLOv8
+- 🔍 Detects **Helmet / No Helmet**  
+- ⚠️ Highlights **non-compliant workers**  
+- 🎥 Supports **image, video & webcam detection**  
+- 🌐 Interactive **Streamlit Web App**  
+- 📊 Model evaluation with metrics & plots  
+- ⚡ Fast inference using YOLOv8  
 
 ---
 
@@ -37,7 +37,8 @@ Ensuring that workers wear helmets is critical for preventing injuries. Manual m
 - YOLOv8 (Ultralytics)  
 - OpenCV  
 - Streamlit  
-- NumPy, Pandas  
+- NumPy  
+- Pandas  
 - Matplotlib  
 
 ---
@@ -58,79 +59,121 @@ Ensuring that workers wear helmets is critical for preventing injuries. Manual m
 ---
 
 ## 🏗️ System Workflow
+
+~~~
 Input (Image / Video / Webcam)
-↓
+        ↓
 YOLOv8 Model (Helmet Detection)
-↓
+        ↓
 Bounding Boxes + Labels
-↓
+        ↓
 Compliance Check
-↓
+        ↓
 ⚠️ Alert (No Helmet) / ✅ Safe
+~~~
 
 ---
 
 ## 📂 Project Structure
 
+~~~
 helmet-compliance-detector/
 │
 ├── app/
-│ └── streamlit_app.py # Web UI
+│   └── streamlit_app.py        # Web UI
 │
 ├── src/
-│ ├── train.py # Model training
-│ ├── detect.py # Image/Video/Webcam detection
-│ ├── evaluate.py # Evaluation metrics & plots
-│ └── prepare_data.py # Data preprocessing
+│   ├── train.py                # Model training
+│   ├── detect.py               # Detection
+│   ├── evaluate.py             # Evaluation
+│   └── prepare_data.py         # Data preprocessing
 │
 ├── data/
-│ └── dataset/
-│ └── data.yaml # Dataset config
+│   └── dataset/
+│       └── data.yaml
 │
-├── runs/ # Training outputs
+├── runs/
 ├── requirements.txt
 ├── README.md
 └── .gitignore
+~~~
 
 ---
 
-## 🌐 Run Streamlit Web App
-streamlit run app/streamlit_app.py
-👉 Upload an image and get:
+## ⚙️ Installation & Setup
 
-Detection results
-Compliance status (Safe / Violation)
+### 1️⃣ Clone Repository
+~~~bash
+git clone https://github.com/rushapipattnaik/helmet-compliance-detector.git
+cd helmet-compliance-detector
+~~~
+
+### 2️⃣ Install Dependencies
+~~~bash
+pip install -r requirements.txt
+~~~
+
+---
+
+## ▶️ Usage
+
+### 🔹 Run Detection (Webcam / Video / Image)
+~~~bash
+python src/detect.py --source webcam
+~~~
+
+OR
+
+~~~bash
+python src/detect.py --source input.jpg
+~~~
+
+---
+
+### 🌐 Run Streamlit Web App
+~~~bash
+streamlit run app/streamlit_app.py
+~~~
+
+👉 Upload an image and get:
+- Detection results  
+- Compliance status (Safe / Violation)  
 
 ---
 
 ## 🧪 Model Training
 
+~~~bash
 python src/train.py
-Training Details:
-Model: YOLOv8s
-Epochs: 30
-Image Size: 640
-Batch Size: 8
+~~~
+
+**Training Details:**
+- Model: YOLOv8s  
+- Epochs: 30  
+- Image Size: 640  
+- Batch Size: 8  
 
 ---
 
 ## 📈 Evaluation
 
+~~~bash
 python src/evaluate.py
-Generates:
+~~~
 
-📊 Confusion Matrix
-📉 Precision-Recall Curve
-📈 Training Results Graph
+Generates:
+- 📊 Confusion Matrix  
+- 📉 Precision-Recall Curve  
+- 📈 Training Results Graph  
 
 ---
 
 ## 📁 Dataset
 
-Source: Roboflow (Helmet Detection Dataset)
-Classes:
-With Helmet
-Without Helmet
+- Source: Roboflow (Helmet Detection Dataset)  
+- Classes:
+  - With Helmet  
+  - Without Helmet  
 
 ⚠️ Dataset not included due to size constraints.
 
@@ -138,22 +181,24 @@ Without Helmet
 
 ## ⚠️ Output Behavior
 
-🟢 Green Box → Helmet detected (Safe)
-🔴 Red Box → No Helmet (Violation)
-⚠️ Warning displayed for non-compliance
+- 🟢 Green Box → Helmet detected (Safe)  
+- 🔴 Red Box → No Helmet (Violation)  
+- ⚠️ Warning displayed for non-compliance  
 
 ---
 
 ## 🔮 Future Improvements
 
-Real-time CCTV integration
-Cloud deployment (Streamlit / HuggingFace)
-Alert system (SMS / Email)
-Multi-worker tracking
-PPE detection (vests, gloves, etc.)
+- Real-time CCTV integration  
+- Cloud deployment (Streamlit / HuggingFace)  
+- Alert system (SMS / Email)  
+- Multi-worker tracking  
+- PPE detection (vests, gloves, etc.)  
 
 ---
 
-## Author
+## 👩‍💻 Author
 
-Rushali Pattnaik
+**Rushali Pattnaik**
+
+---
